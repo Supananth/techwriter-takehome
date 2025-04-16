@@ -107,12 +107,21 @@ Scenario: Complete step 1 of [this Confluent Platform quick start](https://docs.
 install a local version of Confluent Platform. After completing step 1, what port number is the broker running on?
 
 ### Answer: 
+The Kafka broker runs on port number 9092.
 
 ### What are the default topics created when you install Confluent Platform using the quick start?
 
 Scenario: After you complete step 1 of [this quick start](https://docs.confluent.io/platform/current/get-started/platform-quickstart.html), 
 open Control Center at http://localhost:9021/. What are the names of the default topics that are created by Kafka?
 ### Answer: 
+When you install Confluent, Kafka creates the following default topics:
+- _consumer_offsets
+- _transation_state
+- _confluent-metrics
+- _schemas
+- _confluent-command
+- _confluent-controlcenter-...
+- _confluent-monitoring
 
 ### What is the name of the Connect cluster that is created?
 
@@ -120,5 +129,6 @@ Scenario: Complete step 2 of [this quick start](https://docs.confluent.io/platfo
 What is the name of the Connect cluster that is created?
 
 ### Answer: 
+The name of the connect cluster is *connect-default*.
 
 ****
