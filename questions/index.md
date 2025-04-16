@@ -22,15 +22,15 @@ To revert a change from the `master` branch and add it to the `staging` branch:
      ```
 
 3. **Remove the commit from the `master` branch:**
-   - To revert the change, navigate back to the `master` branch:
+   - Revert the change and navigate back to the `master` branch:
      ```bash
      git checkout master
      ```
-   - Undo the specified commit:
+4.  **Undo the specified commit:**
      ```bash
      git revert <commit-hash>
      ```
-The change is now present in the `staging` branch and reverted in the `master` branch.
+The change is now reverted from the `master` branch and added to the `staging` branch.
 
 ### How do you squash git commits?
 Scenario: You have a GitHub branch with 5 separate commits. What is the command line sequence to squash those 5 commits 
@@ -40,15 +40,15 @@ into a single commit?
 To squash the last five Git commits into a single commit:
 
 1. **Start an interactive rebase:**
-   If your last 5 commits need to be squashed, run:
+   To squash the last 5 commits, run:
    ```bash
    git rebase -i HEAD~5
    ```
 
-2. **Mark commits to be squashed:**
+2. **Mark the commits to be squashed:**
    - An interactive editor opens displaying the last 5 commits.
-   - For the first commit, leave the word `pick` as it is.
-   - For the remaining 4 commits, change `pick` to `squash`.
+   - Retain the word `pick` as is for the first commit.
+   - change `pick` to `squash` for the remaining 4 commits.
 
    For example:
    ```
@@ -60,16 +60,10 @@ To squash the last five Git commits into a single commit:
    ```
 
 3. **Complete the rebase:**
-   Save and close the editor for Git to squash the commits into a single file.
+   Save and close the editor. 
 
-5. **Resolve conflicts (if any):**
-   Git notifies you of merge conflicts, if any. Resolve the conflicts and continue the rebase:
-   ```bash
-   git rebase --continue
-   ```
-
-6. **Confirm the changes:**
-   To confirm your changes have been squashed into a single commit, run:
+5. **Confirm the changes:**
+   Confirm your changes have been squashed into a single commit. Run:
    ```bash
    git log
    ```
