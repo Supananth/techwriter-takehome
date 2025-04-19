@@ -6,27 +6,24 @@ change to another branch named `staging`. What do you do?
 ### Answer: 
 To revert a change from the `master` branch and add it to the `staging` branch:
 
-1. **Switch to the `staging` branch:**
+1. **Navigate to the `staging` branch:**
    ```bash
    git checkout staging
    ```
 
-2. **Select the commit from the `master` branch:**
-   - Find the commit hash of the change made in the `master` branch:
+2. **Identify and copy the commit hash of the change made in the `master` branch:**
      ```bash
      git log master
      ```
-   - Apply that commit to the `staging` branch:
+3. **Apply the commit to the `staging` branch:**
      ```bash
      git cherry-pick <commit-hash>
      ```
-
-3. **Remove the commit from the `master` branch:**
-   - Revert the change and navigate back to the `master` branch:
+4. **Navigate back to the `master` branch:**
      ```bash
      git checkout master
      ```
-4.  **Undo the specified commit:**
+5.  **Revert the changes made to the branch:**
      ```bash
      git revert <commit-hash>
      ```
@@ -39,17 +36,11 @@ into a single commit?
 ### Answer:
 To squash the last five Git commits into a single commit:
 
-1. **Start an interactive rebase:**
-   To squash the last 5 commits, run:
+1. **Start an interactive rebase for the last 5 commits in your branch:**
    ```bash
    git rebase -i HEAD~5
    ```
-
-2. **Mark the commits to be squashed:**
-   - An interactive editor opens displaying the last 5 commits.
-   - Retain the word `pick` as is for the first commit.
-   - change `pick` to `squash` for the remaining 4 commits.
-
+2. **Mark the commits to be squashed in the interactive editor. Retain the word `pick` for the first commit and change `pick` to `squash` for the remaining 4 commits.**
    For example:
    ```
    pick <commit-hash-1> Commit message 1
@@ -58,16 +49,12 @@ To squash the last five Git commits into a single commit:
    squash <commit-hash-4> Commit message 4
    squash <commit-hash-5> Commit message 5
    ```
+3. **Save and close the editor.** 
 
-3. **Complete the rebase:**
-   Save and close the editor. 
-
-5. **Confirm the changes:**
-   Confirm your changes have been squashed into a single commit. Run:
+4. **Confirm your changes have been squashed into a single commit.**
    ```bash
    git log
    ```
-
 Your last five commits are now combined into a single commit.
 
 ### What is wrong with this sample JSON syntax?
@@ -108,14 +95,11 @@ The Kafka broker runs on port number 9092.
 Scenario: After you complete step 1 of [this quick start](https://docs.confluent.io/platform/current/get-started/platform-quickstart.html), 
 open Control Center at http://localhost:9021/. What are the names of the default topics that are created by Kafka?
 ### Answer: 
-When you install Confluent, Kafka creates the following default topics:
-- _consumer_offsets
-- _transation_state
-- _confluent-metrics
-- _schemas
-- _confluent-command
-- _confluent-controlcenter-...
-- _confluent-monitoring
+When you install the Confluent Platform, Kafka creates the following default topics:
+- default_ksql_processing_log
+- docker-connect-configs
+- docker-connect-offsets
+- docker-connect-status
 
 ### What is the name of the Connect cluster that is created?
 
@@ -124,5 +108,4 @@ What is the name of the Connect cluster that is created?
 
 ### Answer: 
 The name of the connect cluster is *connect-default*.
-
 ****
